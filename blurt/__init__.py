@@ -5,7 +5,6 @@ blurt/__init__.py - core package init
 import platform
 import os
 import subprocess
-import pyttsx3
 from functools import wraps
 import inspect
 from contextlib import contextmanager
@@ -41,9 +40,13 @@ def say(message: str):
                 print(f"[🔇 fallback] {message}")
                 print("[blurt] Voice not available. To enable sound on Linux:\nsudo apt install espeak")
         elif system == "Windows":
-            engine = pyttsx3.init()
-            engine.say(message)
-            engine.runAndWait()
+            try:
+                import pyttsx3
+                engine = pyttsx3.init()
+                engine.say(message)
+                engine.runAndWait()
+            except ImportError:
+                print("[blurt] pyttsx3 not installed. Run: pip install pyttsx3")
         else:
             print(f"[Unknown OS] {message}")
     except Exception as e:
