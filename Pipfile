@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyttsx3 = "*"
+
+[dev-packages]
+pytest-cov = "*"
+build = "*"
+twine = "*"
+playsound = "==1.2.2"
+pytest = "*"
+
+[requires]
+python_version = "3.10"

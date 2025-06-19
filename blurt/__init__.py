@@ -9,25 +9,27 @@ import pyttsx3
 from functools import wraps
 import inspect
 from contextlib import contextmanager
+from playsound import playsound
 
 # Linux-only install-time warning
 if platform.system() == "Linux":
     if subprocess.run(["which", "espeak"], capture_output=True).returncode != 0 and \
        subprocess.run(["which", "spd-say"], capture_output=True).returncode != 0:
         print("[blurt] Voice output is unavailable. Install with:\nsudo apt install espeak")
-        
-__all__ = ['say', 'notify_when_done']
+
+__all__ = ['say', 'notify_when_done', 'speak', 'beep', 'play_sound']
 
 BLURT_MUTE = os.getenv("BLURT_MUTE", "false").lower() in ["1", "true", "yes"]
 
-
-def say(message: str, mute: bool = False):
-    if BLURT_MUTE or mute:
+def say(message: str):
+    if BLURT_MUTE:
         print(f"[🔇 muted] {message}")
         return
-
+    if not message:
+        print("[blurt] No message to speak.")
+        return
+    
     system = platform.system()
-
     try:
         if system == "Darwin":
             subprocess.run(["say", message])
@@ -48,9 +50,6 @@ def say(message: str, mute: bool = False):
     except Exception as e:
         print(f"[Error Speaking] {message} - {e}")
 
-
-
-
 def notify_when_done(message: str = "Task completed"):
     def decorator(func):
         @wraps(func)
@@ -62,9 +61,33 @@ def notify_when_done(message: str = "Task completed"):
     return decorator
 
 @contextmanager
-def speak(start: str = "Started", done: str = "Completed", mute: bool = False):
-    say(start, mute=mute)
+def speak(start: str = "Started", done: str = "Completed"):
+    say(start)
     try:
         yield
     finally:
-        say(done, mute=mute)
+        say(done)
+
+def beep():
+    try:
+        system = platform.system()
+        if system == "Windows":
+            import winsound
+            winsound.Beep(1000, 200)
+        elif system == "Darwin":
+            subprocess.run(["afplay", "/System/Library/Sounds/Glass.aiff"])
+        elif system == "Linux":
+            print("\a", end='', flush=True)
+    except Exception as e:
+        print(f"[blurt] Beep failed: {e}")
+
+def play_sound(path: str = None):
+    try:
+        if not path:
+            # Use default bundled sound
+            path = os.path.join(os.path.dirname(__file__), "assets", "alert.mp3")
+        
+        path = os.path.abspath(path)
+        playsound(path)
+    except Exception as e:
+        print(f"[blurt] Sound failed: {e}")

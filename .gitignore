@@ -56,3 +56,6 @@ test-results/
 
 # Optional: ignore setup artifacts
 *.spec
+
+# Notes
+notes/

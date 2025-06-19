@@ -16,6 +16,9 @@ dependencies = [
     "pyttsx3"
 ]
 
+[tool.setuptools]
+packages = ["blurt"]
+include-package-data = true
 
 [project.urls]
 Homepage = "https://github.com/yourusername/blurtpy"

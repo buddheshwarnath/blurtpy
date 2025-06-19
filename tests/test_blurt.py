@@ -1,15 +1,8 @@
-from blurt import say, notify_when_done, speak
+from blurt import say, notify_when_done, speak, beep, play_sound
 
 def test_say_runs():
     try:
-        say("Test message", mute=False)
-        assert True
-    except Exception:
-        assert False
-
-def test_mute_say_runs():
-    try:
-        say("Mute message", mute=True)
+        say("Test message")
         assert True
     except Exception:
         assert False
@@ -25,6 +18,21 @@ def test_speak_context_manager():
     try:
         with speak("Started the process", done="Ended the process"):
             x = 1 + 1
+        assert True
+    except Exception:
+        assert False
+
+def test_beep_runs():
+    try:
+        beep()
+        assert True
+    except Exception:
+        assert False
+
+def test_play_sound_fails_gracefully():
+    try:
+        # This should fail internally but not raise an exception
+        play_sound()
         assert True
     except Exception:
         assert False
