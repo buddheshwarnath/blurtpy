@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pyttsx3 = "*"
+pyttsx3 = {version = "==2.98", markers = "sys_platform == 'win32'"}
 sphinx = "*"
 
 [dev-packages]
