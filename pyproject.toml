@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "blurtpy"
+dynamic = ["version"]
 description = "Let your Python scripts speak updates out loud."
 authors = [{ name = "Buddheshwar Nath Keshari", email = "buddheshwar.nk@gmail.com" }]
 maintainers = [{ name = "BrinByte", email = "brinbyte@gmail.com" }]
