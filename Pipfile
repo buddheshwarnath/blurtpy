@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pyttsx3 = "*"
 pyobjc = {version = "*", markers = "sys_platform == 'darwin'"}
+sphinx = "*"
 
 [dev-packages]
 pytest-cov = "*"
