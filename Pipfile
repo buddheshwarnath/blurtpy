@@ -5,14 +5,12 @@ name = "pypi"
 
 [packages]
 pyttsx3 = "*"
-pyobjc = {version = "*", markers = "sys_platform == 'darwin'"}
 sphinx = "*"
 
 [dev-packages]
 pytest-cov = "*"
 build = "*"
 twine = "*"
-playsound = "==1.2.2"
 pytest = "*"
 
 [requires]

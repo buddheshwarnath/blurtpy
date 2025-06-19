@@ -9,7 +9,6 @@ import pyttsx3
 from functools import wraps
 import inspect
 from contextlib import contextmanager
-from playsound import playsound
 
 # Linux-only install-time warning
 if platform.system() == "Linux":
@@ -81,13 +80,30 @@ def beep():
     except Exception as e:
         print(f"[blurt] Beep failed: {e}")
 
-def play_sound(path: str = None):
+def play_sound_deprecated(path: str = None):
     try:
         if not path:
             # Use default bundled sound
             path = os.path.join(os.path.dirname(__file__), "assets", "alert.mp3")
         
         path = os.path.abspath(path)
-        playsound(path)
+        #playsound(path)
     except Exception as e:
         print(f"[blurt] Sound failed: {e}")
+
+def play_sound(path: str = None):
+    try:
+        system = platform.system()
+        if not path:
+            path = os.path.join(os.path.dirname(__file__), "assets", "alert.mp3")
+
+        if system == "Windows":
+            import winsound
+            winsound.PlaySound(path, winsound.SND_FILENAME)
+        elif system == "Darwin":
+            subprocess.run(["afplay", path])
+        elif system == "Linux":
+            subprocess.run(["aplay", path])
+    except Exception as e:
+        print(f"[blurt] Sound failed: {e}")
+

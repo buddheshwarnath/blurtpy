@@ -12,9 +12,7 @@ readme = "README.md"
 requires-python = ">=3.7"
 
 dependencies = [
-    "pyttsx3",
-    "playsound",
-    "pyobjc; sys_platform == 'darwin'"
+    "pyttsx3"
 ]
 
 [tool.setuptools]
