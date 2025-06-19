@@ -12,13 +12,19 @@ maintainers = [
 ]
 readme = "README.md"
 requires-python = ">=3.7"
+
 dependencies = [
-    "pyttsx3"
+    "pyttsx3",
+    "playsound",
+    "pyobjc; sys_platform == 'darwin'"
 ]
 
 [tool.setuptools]
 packages = ["blurt"]
 include-package-data = true
+
+[tool.setuptools.package-data]
+"blurt" = ["assets/*.mp3"]
 
 [project.urls]
 Homepage = "https://github.com/yourusername/blurtpy"
