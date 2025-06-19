@@ -30,3 +30,4 @@ tag_regex = "^v(?P<version>.*)"  # Only if you're tagging like v0.2.0
 
 [project.urls]
 Homepage = "https://github.com/brinbyte/blurtpy"
+PyPI = "https://pypi.org/project/blurtpy/"
