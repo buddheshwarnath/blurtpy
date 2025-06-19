@@ -1,43 +1,116 @@
-# blurtpy
+# 🔊 blurt
 
-**Let your Python scripts speak out loud.**  
-A cross-platform voice notification utility for developers, built with care under [BrinByte](https://github.com/BrinByte).
+**Speak your Python code aloud.**  
+Cross-platform voice alerts for long-running tasks, decorators for completion, and built-in sound support.
 
----
-
-## 🔊 Features
-
-- `say(text)` — Speak a message on macOS, Windows, or Linux
-- `@notify_when_done()` — Automatically announce when a function finishes
-- `with speak(...)` — Context manager for voice-wrapped code blocks
-- Mute mode via `BLURT_MUTE=true`
-- CLI support: `python -m blurt "Hello world!"`
+[![PyPI version](https://img.shields.io/pypi/v/blurt.svg)](https://pypi.org/project/blurt)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/brinbyte/blurtpy/test.yml?branch=master)](https://github.com/brinbyte/blurtpy/actions)
+[![Documentation Status](https://readthedocs.org/projects/blurtpy/badge/?version=latest)](https://blurtpy.readthedocs.io/en/latest/)
 
 ---
 
-## 📦 Install
+## ✨ Features
+
+- 🗣️ `say("text")` — speak out messages
+- ✅ `@notify_when_done()` — decorator to announce task completion
+- 🔄 `with speak():` — context manager to announce start and finish
+- 🔔 `beep()` and `play_sound()` — cross-platform alert sounds
+- 🧪 Fully tested on Windows, macOS, Linux
+- 🔇 Set `BLURT_MUTE=true` to silence everything but still log output
+
+---
+
+## 📦 Installation
+
+Install with pip:
 
 ```bash
-pip install blurtpy
+pip install blurt
+```
+
+Or with Pipenv:
+
+```bash
+pipenv install blurt
 ```
 
 ---
-## 📦 Linux users
-You’ll also need to install espeak for voice output:
-```bash
-sudo apt install espeak
+
+## 🚀 Quick Examples
+
+```python
+from blurt import say, beep, notify_when_done, speak
+
+say("This task has started")
+
+@notify_when_done("All done!")
+def compute():
+    for i in range(3):
+        print("Working...", i)
+
+compute()
+
+with speak("Start", "Finished"):
+    # Do something long
+    pass
+
+beep()
 ```
-If espeak is not available, blurtpy will gracefully fall back to text output with a helpful warning.    
+
+---
+
+## 📚 Full Documentation
+
+📖 Read the full docs at [blurtpy.readthedocs.io](https://blurtpy.readthedocs.io/en/latest/)
+
+---
+
+## 🖥 Platform Notes
+
+| OS       | Voice Tool            | Sound Tool         |
+|----------|------------------------|--------------------|
+| **macOS** | `say`                 | `afplay`           |
+| **Linux** | `espeak` / `spd-say`  | `aplay`            |
+| **Windows** | `pyttsx3`             | `winsound`         |
+
+**Linux users**: You may need:
 
 ```bash
-from blurt import say, notify_when_done, speak
-
-say("Hello developer!")
-
-@notify_when_done("Function complete")
-def task():
-    ...
-
-with speak("Starting work", done="Work done"):
-    ...
+sudo apt install espeak aplay
 ```
+
+---
+
+## 🧪 Tests
+
+This project is tested across:
+
+- ✅ Python 3.10
+- ✅ Windows / Linux / macOS (via GitHub Actions)
+- ✅ Manual sound tests via CI-supported environments
+
+---
+
+## 🧠 Environment Variables
+
+| Variable      | Description              | Example      |
+|---------------|--------------------------|--------------|
+| `BLURT_MUTE`  | Mute voice output        | `true`       |
+
+---
+
+## 🔖 Version
+
+Current release: `0.2.2`
+
+---
+
+## 👨‍💻 Maintainers
+
+Author: [Buddheshwar Nath Keshari](mailto:buddheshwar.nk@gmail.com)
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License.
