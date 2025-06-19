@@ -3,7 +3,7 @@
 **Speak your Python code aloud.**  
 Cross-platform voice alerts for long-running tasks, decorators for completion, and built-in sound support.
 
-[![PyPI version](https://img.shields.io/pypi/v/blurt.svg)](https://pypi.org/project/blurt)
+[![PyPI version](https://img.shields.io/pypi/v/blurtpy.svg)](https://pypi.org/project/blurtpy/)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/brinbyte/blurtpy/test.yml?branch=master)](https://github.com/brinbyte/blurtpy/actions)
 [![Documentation Status](https://readthedocs.org/projects/blurtpy/badge/?version=latest)](https://blurtpy.readthedocs.io/en/latest/)
 
