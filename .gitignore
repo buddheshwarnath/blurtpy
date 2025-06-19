@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.tox/
+.nox/
+
+# Virtual environments
+venv/
+.env/
+env/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Twine and packaging temp
+*.log
+*.bak
+*.tmp
+
+# macOS
+.DS_Store
+
+# VSCode
+.vscode/
+
+# Python virtualenv activation script
+pip-selfcheck.json
+
+# wheel and tarball
+*.whl
+*.tar.gz
+*.zip
+
+# Secrets
+*.env
+.env.*
+
+# Installer state
+pip-log.txt
+
+# IDE settings
+.idea/
+
+# Optional: ignore test result logs
+test-results/
+
+# Optional: ignore setup artifacts
+*.spec

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blurtpy"
+version = "0.1.0"
+description = "Let your Python scripts speak updates out loud."
+authors = [{ name = "Buddheshwar Nath Keshari", email = "buddheshwar.nk@gmail.com" }]
+maintainers = [
+  { name = "BrinByte", email = "brinbyte@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "pyttsx3"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/yourusername/blurtpy"
