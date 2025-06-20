@@ -7,7 +7,6 @@ name = "blurtpy"
 dynamic = ["version"]
 description = "Let your Python scripts speak updates out loud."
 authors = [{ name = "Buddheshwar Nath Keshari", email = "buddheshwar.nk@gmail.com" }]
-maintainers = [{ name = "BrinByte", email = "brinbyte@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.7"
 
@@ -28,5 +27,5 @@ local_scheme = "no-local-version"
 tag_regex = "^v(?P<version>.*)"  # Only if you're tagging like v0.2.0
 
 [project.urls]
-Homepage = "https://github.com/brinbyte/blurtpy"
+Homepage = "https://github.com/buddheshwarnath/blurtpy"
 PyPI = "https://pypi.org/project/blurtpy/"

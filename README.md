@@ -4,7 +4,7 @@
 Cross-platform voice alerts for long-running tasks, decorators for completion, and built-in sound support.
 
 [![PyPI version](https://img.shields.io/pypi/v/blurtpy.svg)](https://pypi.org/project/blurtpy/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/brinbyte/blurtpy/test.yml?branch=master)](https://github.com/brinbyte/blurtpy/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/buddheshwarnath/blurtpy/test.yml?branch=master)](https://github.com/buddheshwarnath/blurtpy/actions)
 [![Documentation Status](https://readthedocs.org/projects/blurtpy/badge/?version=latest)](https://blurtpy.readthedocs.io/en/latest/)
 
 ---
@@ -101,7 +101,7 @@ This project is tested across:
 
 ## 🔖 Version
 
-Current release: `0.2.2`
+Current release: [![PyPI version](https://img.shields.io/pypi/v/blurtpy.svg)](https://pypi.org/project/blurtpy/)
 
 ---
 

@@ -74,4 +74,4 @@ Where can I report issues or contribute?
 
 You can open issues, contribute code, or suggest ideas at the GitHub repository:
 
-`https://github.com/brinbyte/blurtpy <https://github.com/brinbyte/blurtpy>`_
+`https://github.com/buddheshwarnath/blurtpy <https://github.com/buddheshwarnath/blurtpy>`_
