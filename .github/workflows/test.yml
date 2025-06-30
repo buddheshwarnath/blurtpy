@@ -31,12 +31,33 @@ jobs:
       if: runner.os == 'Windows'
       run: echo "BLURT_MUTE=true" >> $GITHUB_ENV
 
-    - name: Install pipenv and dependencies
+    - name: Install dependencies (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt || true
+        pip install -e .
+        pip install pytest pytest-cov
+
+    - name: Install pipenv and dependencies (non-Windows)
+      if: runner.os != 'Windows'
       run: |
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install --dev
         pipenv run pip install -e .
 
-    - name: Run tests
+    - name: Debug info (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        python --version
+        pip list
+        set
+
+    - name: Run tests (Windows)
+      if: runner.os == 'Windows'
+      run: pytest tests/
+
+    - name: Run tests (non-Windows)
+      if: runner.os != 'Windows'
       run: pipenv run pytest tests/
