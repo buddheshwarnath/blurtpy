@@ -1,7 +1,6 @@
 # 🔊 blurtpy
 
-**Let your Python scripts speak!**  
-Cross-platform voice and sound notifications for Python, with decorators, context managers, and full configuration support.
+**Offline, cross-platform Python text-to-speech and sound notifications. 100% local, privacy-friendly, and works without internet.**
 
 [![PyPI version](https://img.shields.io/pypi/v/blurtpy.svg)](https://pypi.org/project/blurtpy/)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/buddheshwarnath/blurtpy/test.yml?branch=master)](https://github.com/buddheshwarnath/blurtpy/actions)
@@ -11,15 +10,24 @@ Cross-platform voice and sound notifications for Python, with decorators, contex
 
 ## ✨ Features
 
-- 🗣️ **Text-to-Speech**: `say("text")` — speak messages aloud (cross-platform)
-- 🔔 **Sound Alerts**: `beep()` and `play_sound()` — play system or custom sounds
-- ✅ **Decorators**: `@notify_when_done()` — announce when a function completes
-- 🔄 **Context Managers**: `with announce_during()` — announce start and finish of code blocks
-- 🗂️ **Class-based API**: `Blurt()` — full control over voice, rate, volume, and more
+- 🗣️ **Offline Text-to-Speech (TTS)**: Speak messages aloud on any platform, no internet required
+- 🔔 **Sound Alerts**: Play system or custom sounds, 100% locally
+- ✅ **Decorators**: Announce when a function completes
+- 🔄 **Context Managers**: Announce start and finish of code blocks
+- 🗂️ **Class-based API**: Full control over voice, rate, volume, and more
 - 🧩 **Configurable**: Set rate, volume, voice, pitch, and language (user/env/default)
+- 🔒 **Privacy-first**: No data sent to the cloud, works in air-gapped environments
 - 🧪 **Fully tested**: Windows, macOS, Linux (CI + Docker)
 - 🔇 **Mute mode**: Set `BLURT_MUTE=true` to silence all output
 - 🧠 **Extensible**: Easy to add new drivers or notification types
+
+---
+
+## 🔒 100% Offline & Privacy-Friendly
+
+- All features work entirely on your device—no internet connection required.
+- No data is sent to the cloud. Your messages and sounds stay private.
+- Perfect for secure environments, air-gapped systems, and privacy-conscious users.
 
 ---
 
@@ -76,9 +84,9 @@ export BLURT_CONFIG='{"rate": 180, "volume": 0.5, "voice": "Alex"}'
 
 ## 🛠️ Global API
 
-- `say(message: str)` — Speak a message aloud
-- `beep()` — Play a beep sound
-- `play_sound(path: str = None)` — Play a sound file (default or custom)
+- `say(message: str)` — Speak a message aloud (offline)
+- `beep()` — Play a beep sound (offline)
+- `play_sound(path: str = None)` — Play a sound file (offline)
 - `list_voices()` — List available system voices
 - `notify_when_done(message: str)` — Decorator to announce after function completes
 - `announce_during(start: str, end: str)` — Context manager to announce start/end

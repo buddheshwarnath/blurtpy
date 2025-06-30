@@ -3,14 +3,15 @@
 Welcome to blurtpy's documentation!
 ===================================
 
-**blurtpy** is a cross-platform Python package that lets your code speak, beep, and notify! It provides simple global functions, decorators, context managers, and a class-based API for voice and sound notifications, with full configuration and platform support.
+**blurtpy** is an offline, cross-platform Python package for text-to-speech (TTS) and sound notifications.  
+100% local, privacy-friendly, and works without internet. Perfect for secure, air-gapped, or privacy-conscious environments.
 
 Features
 --------
-- Speak messages aloud (TTS) on macOS, Linux, and Windows
-- Play system beeps and custom sound files
-- Decorators and context managers for easy notifications
-- Class-based and global APIs
+- Offline text-to-speech (TTS) and sound alerts
+- No internet required, privacy-first, no cloud
+- Cross-platform: macOS, Linux, Windows
+- Global functions, decorators, context managers, and class-based API
 - Full configuration: rate, volume, voice, pitch, language
 - Mute mode and environment variable support
 - Fully tested (CI, Docker, cross-platform)
@@ -24,6 +25,23 @@ Features
    api
    platform
    testing
+
+Offline & Privacy
+=================
+- All features work 100% offline—no internet required
+- No data is sent to the cloud; all processing is local
+- Ideal for privacy, security, and air-gapped systems
+
+FAQ
+===
+**Does blurtpy require an internet connection?**
+  No, all features work offline.
+
+**Is my data private?**
+  Yes, nothing is sent to the cloud.
+
+**Can I use blurtpy in secure or air-gapped environments?**
+  Absolutely! blurtpy is designed for privacy and offline use.
 
 Installation
 ============
