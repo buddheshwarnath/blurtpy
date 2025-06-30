@@ -1,6 +1,3 @@
-from pathlib import Path
-
-test_content = """
 import os
 import pytest
 from blurt.core.voice_config import VoiceConfig
@@ -36,11 +33,3 @@ def test_voice_config_invalid_env(monkeypatch, capsys):
     config = VoiceConfig()
     out = capsys.readouterr().out
     assert "[blurtpy] Warning: BLURT_CONFIG is not valid JSON." in out
-"""
-
-tests_dir = Path("/mnt/data/tests")
-tests_dir.mkdir(parents=True, exist_ok=True)
-file_path = tests_dir / "test_voice_config.py"
-file_path.write_text(test_content)
-
-file_path.name
