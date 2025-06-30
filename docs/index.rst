@@ -1,55 +1,60 @@
-.. blurt documentation master file
+.. blurtpy documentation master file
 
-Welcome to blurt's documentation!
-=================================
+Welcome to blurtpy's documentation!
+===================================
 
-**blurt** is a lightweight, cross-platform Python package that lets your code speak!  
-It provides simple utilities to announce messages via voice, notify when a function is done, play alert sounds, and more.
+**blurtpy** is a cross-platform Python package that lets your code speak, beep, and notify! It provides simple global functions, decorators, context managers, and a class-based API for voice and sound notifications, with full configuration and platform support.
 
-Check out the usage examples and API below.
+Features
+--------
+- Speak messages aloud (TTS) on macOS, Linux, and Windows
+- Play system beeps and custom sound files
+- Decorators and context managers for easy notifications
+- Class-based and global APIs
+- Full configuration: rate, volume, voice, pitch, language
+- Mute mode and environment variable support
+- Fully tested (CI, Docker, cross-platform)
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    usage
+   configuration
    api
-
+   platform
+   testing
 
 Installation
 ============
 
-You can install blurt using pip:
+Install with pip:
 
 .. code-block:: bash
 
-    pip install blurt
+    pip install blurtpy
 
-Or, with Pipenv:
+Or with Pipenv:
 
 .. code-block:: bash
 
-    pipenv install blurt
-
+    pipenv install blurtpy
 
 Requirements
 ============
 
 - Python 3.7+
 - Platform-specific tools:
-  
   - **macOS**: Uses `say` and `afplay` (pre-installed)
   - **Linux**: Uses `espeak`, `spd-say`, or `aplay`
   - **Windows**: Uses `pyttsx3`, `winsound`
 
-Optional:
-- To play sounds, you may need to install platform audio backends (like `espeak` or `aplay` on Linux).
-
+See :doc:`platform` for more details.
 
 Getting Started
 ===============
 
-See the :doc:`usage` section for quick examples or :doc:`api` for full function references.
+See the :doc:`usage` section for quick examples, or :doc:`api` for the full API reference.
 
 
 Indices and Tables

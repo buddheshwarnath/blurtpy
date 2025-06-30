@@ -15,6 +15,9 @@ class MacOSDriver(BaseDriver):
     Relies on built-in tools: `say` for text-to-speech and `afplay` for playing audio files.
     """
 
+    def __init__(self, rate=200, volume=1.0, voice=None, pitch=None, language=None):
+        super().__init__(rate=rate, volume=volume, voice=voice, pitch=pitch, language=language)
+
     def say(self, message: str):
         """
         Speak the given message using the `say` command.

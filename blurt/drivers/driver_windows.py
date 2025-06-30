@@ -13,9 +13,9 @@ class WindowsDriver(BaseDriver):
     Windows-specific driver using pyttsx3 for text-to-speech and winsound for audio.
     """
 
-    def __init__(self, rate=200, volume=1.0, voice=None, pitch=None):
+    def __init__(self, rate=200, volume=1.0, voice=None, pitch=None, language=None):
         import pyttsx3  # Safe, as only Windows will reach here
-        super().__init__(rate=rate, volume=volume, voice=voice, pitch=pitch)
+        super().__init__(rate=rate, volume=volume, voice=voice, pitch=pitch, language=language)
         try:
             self.engine = pyttsx3.init()
             self._apply_config()

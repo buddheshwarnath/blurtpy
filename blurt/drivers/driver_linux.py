@@ -16,8 +16,8 @@ class LinuxDriver(BaseDriver):
     Prefers `espeak` if available, falls back to `spd-say` or terminal bell.
     """
 
-    def __init__(self, rate=200, volume=1.0, voice=None, pitch=None):
-        super().__init__(rate=rate, volume=volume, voice=voice, pitch=pitch)
+    def __init__(self, rate=200, volume=1.0, voice=None, pitch=None, language=None):
+        super().__init__(rate=rate, volume=volume, voice=voice, pitch=pitch, language=language)
         self.has_espeak = which("espeak") is not None
         self.has_spdsay = which("spd-say") is not None
         self.has_aplay = which("aplay") is not None
