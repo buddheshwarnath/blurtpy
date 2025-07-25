@@ -7,10 +7,7 @@ import platform
 from typing import Optional, Dict, List
 
 from blurt.core.voice_config import VoiceConfig
-from blurt.drivers.base_driver import BaseDriver
-from blurt.drivers.driver_macos import MacOSDriver
-from blurt.drivers.driver_linux import LinuxDriver
-from blurt.drivers.driver_windows import WindowsDriver
+from blurt.drivers.driver_factory import DriverFactory
 from blurt.constants import DEFAULT_SOUND_FILE
 
 
@@ -26,21 +23,7 @@ class Blurt:
         Priority: user config > env config > default config
         """
         self.config = VoiceConfig(config).as_dict()
-        self.driver = self._select_driver()
-
-    def _select_driver(self) -> BaseDriver:
-        """
-        Select and initialize the correct platform-specific driver.
-        """
-        system = platform.system()
-        if system == "Darwin":
-            return MacOSDriver(**self.config)
-        elif system == "Linux":
-            return LinuxDriver(**self.config)
-        elif system == "Windows":
-            return WindowsDriver(**self.config)
-        else:
-            raise RuntimeError(f"Unsupported platform: {system}")
+        self.driver = DriverFactory.get_driver(self.config)
 
     def say(self, message: str):
         """Speak a message aloud."""
